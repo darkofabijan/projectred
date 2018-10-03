@@ -8,6 +8,8 @@ agent:
 blocks:
   - name: "Build"
     task:
+      secrets:
+        - name: more-mihalis-secrets
       env_vars:
         - name: APP_ENV
           value: prod
@@ -15,6 +17,7 @@ blocks:
       - name: Docker build
         commands:
           - checkout
+          - echo $SECRET_ONE
           - ls -1
           - echo $APP_ENV
           - echo "Docker build..."
